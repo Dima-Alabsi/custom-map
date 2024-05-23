@@ -5,13 +5,21 @@ export const statesData = {
       type: "Feature",
       properties: {},
       geometry: {
-        coordinates: [35.91970059384252, 31.957663093902937],
+        coordinates: [35.957364505155596, 31.98516870238835],
         type: "Point",
       },
     },
     {
       type: "Feature",
       properties: {},
+      geometry: {
+        coordinates: [35.91970059384252, 31.957663093902937],
+        type: "Point",
+      },
+    },
+    {
+      type: "Feature",
+      properties: { name: "Building A" },
       geometry: {
         coordinates: [
           [
@@ -41,7 +49,7 @@ export const statesData = {
     },
     {
       type: "Feature",
-      properties: {},
+      properties: { name: "Building B" },
       geometry: {
         coordinates: [
           [
@@ -68,7 +76,7 @@ export const statesData = {
     },
     {
       type: "Feature",
-      properties: {},
+      properties: { name: "Building c" },
       geometry: {
         coordinates: [
           [
@@ -96,7 +104,7 @@ export const statesData = {
     },
     {
       type: "Feature",
-      properties: {},
+      properties: {name:"Building D"},
       geometry: {
         coordinates: [
           [
@@ -124,7 +132,7 @@ export const statesData = {
     },
     {
       type: "Feature",
-      properties: {},
+      properties: {name:"Building E"},
       geometry: {
         coordinates: [
           [
@@ -142,25 +150,7 @@ export const statesData = {
     },
     {
       type: "Feature",
-      properties: {},
-      geometry: {
-        coordinates: [
-          [
-            [35.91858988975895, 31.956409703454725],
-            [35.9183809435132, 31.956462576616957],
-            [35.9182159859497, 31.95651233956535],
-            [35.91849091522158, 31.955616602370355],
-            [35.91687799683052, 31.956322618180295],
-            [35.91849458094521, 31.955622822797807],
-            [35.91858988975895, 31.956409703454725],
-          ],
-        ],
-        type: "Polygon",
-      },
-    },
-    {
-      type: "Feature",
-      properties: {},
+      properties: {name:"Building F"},
       geometry: {
         coordinates: [
           [
@@ -192,7 +182,7 @@ export const statesData = {
     },
     {
       type: "Feature",
-      properties: {},
+      properties: {name:"Building G"},
       geometry: {
         coordinates: [
           [
@@ -211,7 +201,7 @@ export const statesData = {
     },
     {
       type: "Feature",
-      properties: {},
+      properties: {name:"Building H"},
       geometry: {
         coordinates: [
           [
@@ -240,8 +230,117 @@ export const statesData = {
       type: "Feature",
       properties: {},
       geometry: {
-        coordinates: [35.91843822178109, 31.956242554548894],
+        coordinates: [35.918602817662276, 31.95869730888421],
         type: "Point",
+      },
+    },
+    {
+      type: "Feature",
+      properties: {name:"Building I"},
+      geometry: {
+        coordinates: [
+          [
+            [35.918067207701085, 31.959212907862096],
+            [35.917753051859705, 31.958561854434876],
+            [35.91921567905899, 31.95810305562388],
+            [35.919442283272986, 31.958706047874287],
+            [35.918777920918785, 31.958933261317753],
+            [35.91860796775816, 31.95903375939261],
+            [35.91850496584311, 31.959125518408143],
+            [35.918067207701085, 31.959212907862096],
+          ],
+        ],
+        type: "Polygon",
+      },
+    },
+    {
+      type: "Feature",
+      properties: {},
+      geometry: {
+        coordinates: [35.92014953324346, 31.95823423558751],
+        type: "Point",
+      },
+    },
+    {
+      type: "Feature",
+      properties: {name:"Building J"},
+      geometry: {
+        coordinates: [
+          [
+            [35.92099969305707, 31.958252730576007],
+            [35.92007819116046, 31.95853688038541],
+            [35.91951141795181, 31.95869997189054],
+            [35.91927757446095, 31.958098045102943],
+            [35.91985425629244, 31.957988756296672],
+            [35.920163405315435, 31.95793663389719],
+            [35.92055182331842, 31.95782230078791],
+            [35.92078963025841, 31.957753364579446],
+            [35.92099969305707, 31.958252730576007],
+          ],
+        ],
+        type: "Polygon",
+      },
+    },
+    {
+      type: "Feature",
+      properties: {},
+      geometry: {
+        coordinates: [35.913678704445914, 31.95930142524371],
+        type: "Point",
+      },
+    },
+    {
+      type: "Feature",
+      properties: {name:"Building K"},
+      geometry: {
+        coordinates: [
+          [
+            [35.91478350910444, 31.95939199775667],
+            [35.91450419898388, 31.9594160727259],
+            [35.91404789610468, 31.95945668489381],
+            [35.91354672895446, 31.959505543326514],
+            [35.913300534812805, 31.959523222537825],
+            [35.912926406765905, 31.959550575074303],
+            [35.91267040800261, 31.95957038677669],
+            [35.91255626829795, 31.959364931878426],
+            [35.91245767418005, 31.95918075584693],
+            [35.912384161021095, 31.95903840439891],
+            [35.91281832108683, 31.958956955790413],
+            [35.9140015743412, 31.95873351831642],
+            [35.91424562697483, 31.95868622648861],
+            [35.914314925870855, 31.958779531963273],
+            [35.91438121177117, 31.958835770834057],
+            [35.91445201716496, 31.958871559188694],
+            [35.91457103048572, 31.958895844135427],
+            [35.914629783897226, 31.958892009670436],
+            [35.91478350910444, 31.95939199775667],
+          ],
+        ],
+        type: "Polygon",
+      },
+    },
+    {
+      type: "Feature",
+      properties: {},
+      geometry: {
+        coordinates: [35.91518747439062, 31.96017582888703],
+        type: "Point",
+      },
+    },
+    {
+      type: "Feature",
+      properties: {name:"Building L"},
+      geometry: {
+        coordinates: [
+          [
+            [35.91556714469485, 31.96029919331407],
+            [35.91492897546078, 31.960340314753097],
+            [35.91488050691126, 31.95944934612008],
+            [35.91557522278663, 31.959428785203386],
+            [35.91556714469485, 31.96029919331407],
+          ],
+        ],
+        type: "Polygon",
       },
     },
   ],
