@@ -59,7 +59,7 @@ const MapComponent = () => {
     <>
       <MapContainer
         center={jordanCenter}
-        zoom={16}
+        zoom={14}
         style={{
           height: "90vh",
           width: "90vw",
@@ -73,7 +73,7 @@ const MapComponent = () => {
         />
         {statesData.features.map((state, index) => {
           let coordinates;
-          if (state.geometry.type === "Polygon") {
+          if (state.geometry.type === "LineString") {
             coordinates = state.geometry.coordinates.map((item) => [
               item[1],
               item[0],
