@@ -360,7 +360,7 @@ export const statesData = {
     {
       id: "332f8f68e726a0a268b6153caa9a1abf",
       type: "Feature",
-      properties: { name: "T 10 A" },
+      properties: { name: "T 10 A", color: "#67637e" },
       geometry: {
         coordinates: [
           [35.91666172284468, 31.95875285405755],
@@ -386,7 +386,7 @@ export const statesData = {
     {
       id: "4228344e4a77eb06f7800aa9c416f7bd",
       type: "Feature",
-      properties: { name: "T 9 A" },
+      properties: { name: "T 9 A", color: "#CDD37D" },
       geometry: {
         coordinates: [
           [35.9165309408246, 31.958666167059135],
@@ -410,7 +410,7 @@ export const statesData = {
     {
       id: "bc9ad439c9dfc240d3db43636c8ffd07",
       type: "Feature",
-      properties: { name: "T 8 A" },
+      properties: { name: "T 8 A", color: "#B9B9B9" },
       geometry: {
         coordinates: [
           [35.91644920206167, 31.958632648063897],
@@ -438,7 +438,7 @@ export const statesData = {
     {
       id: "52508c196076cf140b9b051a37a6c57a",
       type: "Feature",
-      properties: { name: "T 7 A" },
+      properties: { name: "T 7 A", color: "#D09CB4" },
       geometry: {
         coordinates: [
           [35.9163919849278, 31.958487013668318],
@@ -462,7 +462,7 @@ export const statesData = {
     {
       id: "22ec1b4852ef1f547dbdc3557584ac6f",
       type: "Feature",
-      properties: { name: "T 6 A" },
+      properties: { name: "T 6 A", color: "#CCD180" },
       geometry: {
         coordinates: [
           [35.916461462875674, 31.958351781523348],
@@ -483,7 +483,7 @@ export const statesData = {
     {
       id: "c57c563be9027596c005ae02accc680e",
       type: "Feature",
-      properties: { name: "T 5 A" },
+      properties: { name: "T 5 A", color: "#A0C661" },
       geometry: {
         coordinates: [
           [35.91652685388621, 31.958231575004746],
@@ -501,7 +501,7 @@ export const statesData = {
     {
       id: "5712f16bdb68734130f29f759767aca8",
       type: "Feature",
-      properties: { name: "T 4 A" },
+      properties: { name: "T 4 A", color: "#BABABA" },
       geometry: {
         coordinates: [
           [35.91664265046637, 31.95814488751347],
@@ -520,7 +520,7 @@ export const statesData = {
     {
       id: "8ec2adfd21dbde9874018db02bb737aa",
       type: "Feature",
-      properties: { name: "T 3 A" },
+      properties: { name: "T 3 A", color: "#BABABA" },
       geometry: {
         coordinates: [
           [35.91671485304013, 31.95808825164258],
@@ -539,7 +539,7 @@ export const statesData = {
     {
       id: "b5c5e3cf25ca63810fb534513309361c",
       type: "Feature",
-      properties: { name: "T 2 A" },
+      properties: { name: "T 2 A", color: "#AB961B" },
       geometry: {
         coordinates: [
           [35.916943721575535, 31.958085939973117],
@@ -558,7 +558,7 @@ export const statesData = {
     {
       id: "d8114485f75f607f34526bff5c112ba7",
       type: "Feature",
-      properties: { name: "T 1 A" },
+      properties: { name: "T 1 A", color: "#85654C" },
       geometry: {
         coordinates: [
           [35.91709085134801, 31.958143731679897],
@@ -579,7 +579,7 @@ export const statesData = {
     {
       id: "b7062ce5aab312970b9eae1bcbc5bacd",
       type: "Feature",
-      properties: { name: "T 10 B" },
+      properties: { name: "T 10 B", color: "#EBEB31" },
       geometry: {
         coordinates: [
           [35.916776157112395, 31.95871008848222],
@@ -597,7 +597,7 @@ export const statesData = {
     {
       id: "ee011edfd8a4a194263dc1b71aa914e2",
       type: "Feature",
-      properties: { name: "T 9 B" },
+      properties: { name: "T 9 B", color: "#E11E1D" },
       geometry: {
         coordinates: [
           [35.91666989672035, 31.958708932654915],
@@ -617,7 +617,7 @@ export const statesData = {
     {
       id: "d4d9c1365facab7ffa90635e4445ad1b",
       type: "Feature",
-      properties: { name: "T 8 B" },
+      properties: { name: "T 8 B", color: "#1B16D7" },
       geometry: {
         coordinates: [
           [35.916556824766104, 31.95863033640913],
@@ -640,7 +640,7 @@ export const statesData = {
     {
       id: "a9ff07f834308e2e535f2e070bc9a2c4",
       type: "Feature",
-      properties: { name: "T 7 B" },
+      properties: { name: "T 7 B", color: "#B46223" },
       geometry: {
         coordinates: [
           [35.916484622192286, 31.958520532716705],
@@ -660,7 +660,7 @@ export const statesData = {
     {
       id: "55bb53051b29963d21a423975f367927",
       type: "Feature",
-      properties: { name: "T 6 B" },
+      properties: { name: "T 6 B", color: "#197949" },
       geometry: {
         coordinates: [
           [35.91656227401691, 31.95840379391076],
@@ -680,29 +680,10 @@ export const statesData = {
         type: "LineString",
       },
     },
-    // {
-    //   id: "6225d006f01b172af583e92b8aa8c154",
-    //   type: "Feature",
-    //   properties: { name: "T 5 B" },
-    //   geometry: {
-    //     coordinates: [
-    //       [35.9165854333325, 31.958262782481427],
-    //       [35.91660859264917, 31.958281275795756],
-    //       [35.91658407102008, 31.95831479491926],
-    //       [35.91653502776293, 31.958289366619837],
-    //       [35.91651731769707, 31.958281275795756],
-    //       [35.91654456395102, 31.958241977497877],
-    //       [35.91656227401691, 31.958218860844397],
-    //       [35.91659088258325, 31.958196900018038],
-    //       [35.91662630271401, 31.95817609501954],
-    //     ],
-    //     type: "LineString",
-    //   },
-    // },
     {
       id: "522fe6bb037c00faaff9e46ccd15aa22",
       type: "Feature",
-      properties: { name: "T 5 B" },
+      properties: { name: "T 5 B", color: "#291778" },
       geometry: {
         coordinates: [
           [35.91658679564395, 31.958261626650255],
@@ -726,7 +707,7 @@ export const statesData = {
     {
       id: "ca34602f7069c28fe471041a8bce83ea",
       type: "Feature",
-      properties: { name: "T 4 B" },
+      properties: { name: "T 4 B", color: "#CD4C7E" },
       geometry: {
         coordinates: [
           [35.916690331409995, 31.958215393346592],
@@ -744,7 +725,7 @@ export const statesData = {
     {
       id: "eccf24346e146f36e6d1db118f28aa07",
       type: "Feature",
-      properties: { name: "T 3 B" },
+      properties: { name: "T 3 B", color: "#164416" },
       geometry: {
         coordinates: [
           [35.91689604062981, 31.958186497520714],
@@ -759,7 +740,7 @@ export const statesData = {
     {
       id: "d79014c86afb424aa59f08f17dfedf73",
       type: "Feature",
-      properties: { name: "T 2 B" },
+      properties: { name: "T 2 B", color: "#FFFFFF" },
       geometry: {
         coordinates: [
           [35.91700502564572, 31.9582200166779],
@@ -776,7 +757,7 @@ export const statesData = {
     {
       id: "d4859de802795f7649667a69c789e975",
       type: "Feature",
-      properties: { name: "T 1 B" },
+      properties: { name: "T 1 B",color:'#000000' },
       geometry: {
         coordinates: [
           [35.917090851346984, 31.958287054956415],
@@ -791,7 +772,7 @@ export const statesData = {
     {
       id: "d05ccddbe73826d662caf7e4288dea72",
       type: "Feature",
-      properties: { name: "RUEDO" },
+      properties: { name: "RUEDO",color:'#2A9CB3' },
       geometry: {
         coordinates: [
           [35.91693146075946, 31.958622245615985],
