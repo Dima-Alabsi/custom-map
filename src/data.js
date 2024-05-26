@@ -349,14 +349,14 @@
 export const statesData = {
   type: "FeatureCollection",
   features: [
-    {
-      type: "Feature",
-      properties: {},
-      geometry: {
-        coordinates: [35.91629510699465, 31.95876289437369],
-        type: "Point",
-      },
-    },
+    // {
+    //   type: "Feature",
+    //   properties: {},
+    //   geometry: {
+    //     coordinates: [35.91629510699465, 31.95876289437369],
+    //     type: "Point",
+    //   },
+    // },
     {
       id: "332f8f68e726a0a268b6153caa9a1abf",
       type: "Feature",
