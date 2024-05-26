@@ -4,8 +4,7 @@ import "leaflet/dist/leaflet.css";
 import { statesData } from "./data";
 import DynamicModal from "./components/Modal";
 
-const jordanCenter = [31.9607, 35.9163]; // Al Abdali › Coordinates
-
+const jordanCenter = [31.9584, 35.9168]; // Al Abdali › Coordinates
 const generateRandomDetails = () => {
   const randomPrice = Math.floor(Math.random() * 500000) + 1000000;
   const randomDetails =
@@ -59,18 +58,17 @@ const MapComponent = () => {
     <>
       <MapContainer
         center={jordanCenter}
-        zoom={14}
+        zoom={20}
         style={{
-          height: "90vh",
-          width: "90vw",
+          height: "100vh",
+          width: "100vw",
           margin: "auto",
-          marginTop: "5vh",
+          // marginTop: "5vh",
         }}
+        minZoom={17}
+        maxZoom={23}
       >
-        <TileLayer
-          url={`https://api.maptiler.com/maps/basic-v2/256/{z}/{x}/{y}.png?key=${process.env.REACT_APP_MAP_KEY}`}
-          attribution='<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
-        />
+        <TileLayer url={``} attribution="" />
         {statesData.features.map((state, index) => {
           let coordinates;
           if (state.geometry.type === "LineString") {
