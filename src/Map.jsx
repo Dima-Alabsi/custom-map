@@ -85,7 +85,7 @@ const MapComponent = () => {
               <Polygon
                 key={index}
                 pathOptions={{
-                  fillColor: isBought ? "#808080" : "#FD8D3C",
+                  fillColor: isBought ? "#808080" : state.properties.color,
                   fillOpacity: 0.7,
                   weight: 2,
                   opacity: 1,
@@ -117,7 +117,7 @@ const MapComponent = () => {
                       weight: 2,
                       dashArray: "3",
                       color: "white",
-                      fillColor: "#FD8D3C",
+                      fillColor: state.properties.color,
                     });
                   },
                   click: (e) => {
