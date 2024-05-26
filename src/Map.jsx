@@ -39,7 +39,11 @@ const MapComponent = () => {
     layer
       .unbindPopup()
       .bindPopup(
-        `<b>${selectedBuilding.properties.name} Reserved</b><br/>Name :${buyerInfo.name}<br/>Email:${buyerInfo.email}${buyerInfo.phone && `<br/>Phone:${buyerInfo.phone}`} `
+        `<b>${selectedBuilding.properties.name} Reserved</b><br/>Name :${
+          buyerInfo.name
+        }<br/>Email:${buyerInfo.email}${
+          buyerInfo.phone && `<br/>Phone:${buyerInfo.phone}`
+        } `
       )
       .openPopup();
     layer.off("mouseover mouseout");
@@ -70,7 +74,7 @@ const MapComponent = () => {
         {statesData.features.map((state, index) => {
           let coordinates;
           if (state.geometry.type === "Polygon") {
-            coordinates = state.geometry.coordinates[0].map((item) => [
+            coordinates = state.geometry.coordinates.map((item) => [
               item[1],
               item[0],
             ]);
