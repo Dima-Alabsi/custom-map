@@ -18,8 +18,6 @@ const DynamicModal = ({ open, handleClose, title, content, handleConfirm }) => {
   const [phone, setPhone] = useState("");
 
   const [isConfirmDisabled, setIsConfirmDisabled] = useState(true);
-console.log(isSmallScreen,'isSmallScreen');
-console.log(isLargeScreen,'isLargeScreen');
 
   useEffect(() => {
     if (name && email) {
