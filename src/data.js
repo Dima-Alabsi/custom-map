@@ -757,7 +757,7 @@ export const statesData = {
     {
       id: "d4859de802795f7649667a69c789e975",
       type: "Feature",
-      properties: { name: "T 1 B",color:'#000000' },
+      properties: { name: "T 1 B", color: "#000000" },
       geometry: {
         coordinates: [
           [35.917090851346984, 31.958287054956415],
@@ -772,7 +772,7 @@ export const statesData = {
     {
       id: "d05ccddbe73826d662caf7e4288dea72",
       type: "Feature",
-      properties: { name: "RUEDO",color:'#2A9CB3' },
+      properties: { name: "RUEDO", color: "#2A9CB3" },
       geometry: {
         coordinates: [
           [35.91693146075946, 31.958622245615985],

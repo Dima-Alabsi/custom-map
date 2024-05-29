@@ -57,6 +57,7 @@ const MapComponent = () => {
   return (
     <>
       <MapContainer
+        scrollWheelZoom={true}
         center={jordanCenter}
         zoom={20}
         style={{
@@ -68,7 +69,10 @@ const MapComponent = () => {
         minZoom={17}
         maxZoom={23}
       >
-        <TileLayer url={``} attribution="" />
+        {/* <TileLayer
+          url={`https://api.maptiler.com/maps/basic-v2/256/{z}/{x}/{y}.png?key=${process.env.REACT_APP_MAP_KEY}`}
+          attribution='<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
+        />*/}
         {statesData.features.map((state, index) => {
           let coordinates;
           if (state.geometry.type === "LineString") {
