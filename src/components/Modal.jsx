@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import TextField from "@mui/material/TextField";
+import IconButton from "@mui/material/IconButton";
 import Modal from "@mui/material/Modal";
+import TextField from "@mui/material/TextField";
+import Typography from "@mui/material/Typography";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import IconButton from "@mui/material/IconButton";
+import React, { useEffect, useState } from "react";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 const DynamicModal = ({ open, handleClose, title, content, handleConfirm }) => {
   const theme = useTheme();
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("lg"));
   const isLargeScreen = useMediaQuery(theme.breakpoints.up("lg"));
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -20,7 +20,7 @@ const DynamicModal = ({ open, handleClose, title, content, handleConfirm }) => {
   const [isConfirmDisabled, setIsConfirmDisabled] = useState(true);
 
   useEffect(() => {
-    if (name && email ) {
+    if (name && email) {
       setIsConfirmDisabled(false);
     } else {
       setIsConfirmDisabled(true);
@@ -28,7 +28,7 @@ const DynamicModal = ({ open, handleClose, title, content, handleConfirm }) => {
   }, [name, email]);
 
   const handleSubmit = () => {
-    handleConfirm({ name, email ,phone});
+    handleConfirm({ name, email, phone });
   };
 
   const style = {
@@ -44,58 +44,63 @@ const DynamicModal = ({ open, handleClose, title, content, handleConfirm }) => {
   };
 
   return (
-    <div>
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box sx={style}>
-          <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-            <Typography id="modal-modal-title" variant="h6" component="h2">
-              {title}
-            </Typography>
-            <IconButton onClick={handleClose}>X</IconButton>
-          </Box>
-          <Typography
-            id="modal-modal-description"
-            sx={{ mt: 2, backgroundColor: "#f2f2f2" ,paddingTop:'1px',paddingBottom:'1px'}}
-          >
-            {content}
+    <Modal
+      open={open}
+      onClose={handleClose}
+      aria-labelledby="modal-modal-title"
+      aria-describedby="modal-modal-description"
+    >
+      <Box sx={style}>
+        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+          <Typography id="modal-modal-title" variant="h6" component="h2">
+            {title}
           </Typography>
-          <TextField
-            fullWidth
-            label="Name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            sx={{ mt: 2 }}
-          />
-          <TextField
-            fullWidth
-            label="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            sx={{ mt: 2 ,mb: 2 }}
-          />
-          <PhoneInput
-          inputStyle={{ height:'45px', width:'100%'}}
-            country={"jo"}
-            value={phone}
-            onChange={(phone) => setPhone(phone)}
-          />
-          <Button
-            onClick={handleSubmit}
-            variant="contained"
-            color="primary"
-            sx={{ mt: 2 }}
-            disabled={isConfirmDisabled}
-          >
-            Buy
-          </Button>
+          <IconButton onClick={handleClose}>X</IconButton>
         </Box>
-      </Modal>
-    </div>
+        <Typography
+          id="modal-modal-description"
+          sx={{
+            mt: 2,
+            backgroundColor: "#f2f2f2",
+            paddingTop: "1px",
+            paddingBottom: "1px",
+          }}
+          component={"span"}
+        >
+          {content}
+        </Typography>
+        <TextField
+          fullWidth
+          label="Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          sx={{ mt: 2 }}
+        />
+        <TextField
+          fullWidth
+          label="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          sx={{ mt: 2, mb: 2 }}
+        />
+        <PhoneInput
+          inputStyle={{ height: "45px", width: "100%" }}
+          country={"jo"}
+          value={phone}
+          onChange={(phone) => setPhone(phone)}
+          enableSearch={true}
+        />
+        <Button
+          onClick={handleSubmit}
+          variant="contained"
+          color="primary"
+          sx={{ mt: 2 }}
+          disabled={isConfirmDisabled}
+        >
+          Buy
+        </Button>
+      </Box>
+    </Modal>
   );
 };
 
