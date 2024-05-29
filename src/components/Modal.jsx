@@ -88,6 +88,7 @@ const DynamicModal = ({ open, handleClose, title, content, handleConfirm }) => {
           country={"jo"}
           value={phone}
           onChange={(phone) => setPhone(phone)}
+          enableSearch={true}
         />
         <Button
           onClick={handleSubmit}
