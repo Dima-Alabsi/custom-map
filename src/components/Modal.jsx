@@ -11,13 +11,15 @@ import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 const DynamicModal = ({ open, handleClose, title, content, handleConfirm }) => {
   const theme = useTheme();
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("lg"));
   const isLargeScreen = useMediaQuery(theme.breakpoints.up("lg"));
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
 
   const [isConfirmDisabled, setIsConfirmDisabled] = useState(true);
+console.log(isSmallScreen,'isSmallScreen');
+console.log(isLargeScreen,'isLargeScreen');
 
   useEffect(() => {
     if (name && email) {
