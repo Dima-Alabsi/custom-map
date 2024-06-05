@@ -1,19 +1,14 @@
-import {
-  Box,
-  Button,
-  IconButton,
-  Modal,
-  Select,
-  Typography,
-  useMediaQuery,
-  useTheme,
-  TextField,
-  MenuItem,
-} from "@mui/material";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import IconButton from "@mui/material/IconButton";
+import Modal from "@mui/material/Modal";
+import TextField from "@mui/material/TextField";
+import Typography from "@mui/material/Typography";
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import React, { useEffect, useState } from "react";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
-
 const DynamicModal = ({ open, handleClose, title, content, handleConfirm }) => {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("lg"));
@@ -21,16 +16,19 @@ const DynamicModal = ({ open, handleClose, title, content, handleConfirm }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [whereHeard, setWhereHeard] = useState("");
 
   const [isConfirmDisabled, setIsConfirmDisabled] = useState(true);
 
   useEffect(() => {
-    setIsConfirmDisabled(!(name && email && whereHeard));
-  }, [name, email, whereHeard]);
+    if (name && email) {
+      setIsConfirmDisabled(false);
+    } else {
+      setIsConfirmDisabled(true);
+    }
+  }, [name, email]);
 
   const handleSubmit = () => {
-    handleConfirm({ name, email, phone, whereHeard });
+    handleConfirm({ name, email, phone });
   };
 
   const style = {
@@ -55,7 +53,7 @@ const DynamicModal = ({ open, handleClose, title, content, handleConfirm }) => {
       <Box sx={style}>
         <Box sx={{ display: "flex", justifyContent: "space-between" }}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-            {title} Seat
+            {title}
           </Typography>
           <IconButton onClick={handleClose}>X</IconButton>
         </Box>
@@ -91,23 +89,7 @@ const DynamicModal = ({ open, handleClose, title, content, handleConfirm }) => {
           value={phone}
           onChange={(phone) => setPhone(phone)}
           enableSearch={true}
-          placeholder="Phone"
         />
-        <Select
-          fullWidth
-          value={whereHeard}
-          onChange={(e) => setWhereHeard(e.target.value)}
-          displayEmpty
-          sx={{ mt: 2, mb: 2 }}
-        >
-          <MenuItem value="" disabled>
-            Where did you hear about this event?
-          </MenuItem>
-          <MenuItem value="socialMedia">Social Media</MenuItem>
-          <MenuItem value="friends">Friends</MenuItem>
-          <MenuItem value="foundMyself">Found Myself</MenuItem>
-        </Select>
-
         <Button
           onClick={handleSubmit}
           variant="contained"
@@ -115,7 +97,7 @@ const DynamicModal = ({ open, handleClose, title, content, handleConfirm }) => {
           sx={{ mt: 2 }}
           disabled={isConfirmDisabled}
         >
-          Submit
+          Buy
         </Button>
       </Box>
     </Modal>
