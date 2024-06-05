@@ -1,13 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { MapContainer, TileLayer, Polygon, CircleMarker } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import { statesData } from "./data"; // Assuming this contains seat data
+import { statesData } from "./data";
 import DynamicModal from "./components/Modal";
-import Event from "./components/Event/Event";
 
 const jordanCenter = [31.9584, 35.9168]; // Al Abdali › Coordinates
 const generateRandomDetails = () => {
-  const randomPrice = Math.floor(Math.random() * 500) + 100;
+  const randomPrice = Math.floor(Math.random() * 500000) + 1000000;
   const randomDetails =
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
   return { price: randomPrice, details: randomDetails };
@@ -15,22 +14,20 @@ const generateRandomDetails = () => {
 
 const MapComponent = () => {
   const [openInfoModal, setOpenInfoModal] = useState(false);
-  const [selectedSeat, setSelectedSeat] = useState(null);
-  const [seatDetails, setSeatDetails] = useState(null);
-  const [reservedSeats, setReservedSeats] = useState(new Map());
-  const [notReservedCount, setNotReservedCount] = useState(statesData.features.length);
-  const [reservedCount, setReservedCount] = useState(0);
+  const [selectedBuilding, setSelectedBuilding] = useState(null);
+  const [buildingDetails, setBuildingDetails] = useState(null);
+  const [boughtBuildings, setBoughtBuildings] = useState(new Map());
 
-  const handleSeatClick = (seat) => {
-    if (reservedSeats.has(seat.properties.name)) return;
+  const handleBuildingClick = (building) => {
+    if (boughtBuildings.has(building.properties.name)) return;
 
-    setSelectedSeat(seat);
-    setSeatDetails(generateRandomDetails());
+    setSelectedBuilding(building);
+    setBuildingDetails(generateRandomDetails());
     setOpenInfoModal(true);
   };
 
   const handleConfirm = (buyerInfo) => {
-    const layer = selectedSeat.layer;
+    const layer = selectedBuilding.layer;
     layer.setStyle({
       fillColor: "#808080",
       fillOpacity: 0.7,
@@ -41,49 +38,41 @@ const MapComponent = () => {
     layer
       .unbindPopup()
       .bindPopup(
-        `<b>${selectedSeat.properties.name} Reserved</b><br/>Name :${
+        `<b>${selectedBuilding.properties.name} Reserved</b><br/>Name :${
           buyerInfo.name
         }<br/>Email:${buyerInfo.email}${
           buyerInfo.phone && `<br/>Phone:${buyerInfo.phone}`
-        }<br/>Referrer:${buyerInfo.referrer} `
+        } `
       )
       .openPopup();
     layer.off("mouseover mouseout");
-    setReservedSeats((prev) => {
+    setBoughtBuildings((prev) => {
       const newMap = new Map(prev);
-      newMap.set(selectedSeat.properties.name, buyerInfo);
+      newMap.set(selectedBuilding.properties.name, buyerInfo);
       return newMap;
     });
-
-    setReservedCount((prev) => prev + 1);
-    setNotReservedCount((prev) => prev - 1);
-
     setOpenInfoModal(false);
   };
 
-  useEffect(() => {
-    setNotReservedCount(statesData.features.length - reservedSeats.size);
-  }, [reservedSeats]);
-
   return (
     <>
-      <Event />
-      <div style={{ textAlign: "center", margin: "10px" }}>
-        <p variant="h6">Reserved Seats: {reservedCount}</p>
-        <p variant="h6">Not Reserved Seats: {notReservedCount}</p>
-      </div>
       <MapContainer
         scrollWheelZoom={true}
         center={jordanCenter}
         zoom={20}
         style={{
-          height: "50vh",
-          width: "50vw",
+          height: "100vh",
+          width: "100vw",
           margin: "auto",
+          // marginTop: "5vh",
         }}
         minZoom={17}
         maxZoom={23}
       >
+        {/* <TileLayer
+          url={`https://api.maptiler.com/maps/basic-v2/256/{z}/{x}/{y}.png?key=${process.env.REACT_APP_MAP_KEY}`}
+          attribution='<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
+        />*/}
         {statesData.features.map((state, index) => {
           let coordinates;
           if (state.geometry.type === "LineString") {
@@ -92,13 +81,13 @@ const MapComponent = () => {
               item[0],
             ]);
 
-            const isReserved = reservedSeats.has(state.properties.name);
+            const isBought = boughtBuildings.has(state.properties.name);
 
             return (
               <Polygon
                 key={index}
                 pathOptions={{
-                  fillColor: isReserved ? "#808080" : state.properties.color,
+                  fillColor: isBought ? "#808080" : state.properties.color,
                   fillOpacity: 0.7,
                   weight: 2,
                   opacity: 1,
@@ -108,7 +97,7 @@ const MapComponent = () => {
                 positions={coordinates}
                 eventHandlers={{
                   mouseover: (e) => {
-                    if (isReserved) return;
+                    if (isBought) return;
                     const layer = e.target;
                     layer
                       .bindPopup(`<b>${state.properties.name}</b>`)
@@ -123,7 +112,7 @@ const MapComponent = () => {
                     });
                   },
                   mouseout: (e) => {
-                    if (isReserved) return;
+                    if (isBought) return;
                     const layer = e.target;
                     layer.setStyle({
                       fillOpacity: 0.7,
@@ -134,9 +123,9 @@ const MapComponent = () => {
                     });
                   },
                   click: (e) => {
-                    if (isReserved) return;
+                    if (isBought) return;
                     const layer = e.target;
-                    handleSeatClick({ ...state, layer });
+                    handleBuildingClick({ ...state, layer });
                   },
                 }}
               />
@@ -150,20 +139,20 @@ const MapComponent = () => {
           }
         })}
       </MapContainer>
-      {openInfoModal && selectedSeat && seatDetails && (
+      {openInfoModal && selectedBuilding && buildingDetails && (
         <DynamicModal
           open={openInfoModal}
           handleClose={() => setOpenInfoModal(false)}
-          title={selectedSeat.properties.name}
+          title={selectedBuilding.properties.name}
           content={
             <div>
               <p>
                 Price:{" "}
                 <span style={{ fontWeight: "bolder" }}>
-                  ${seatDetails.price.toLocaleString()}
+                  ${buildingDetails.price.toLocaleString()}
                 </span>
               </p>
-              {/* <p>{seatDetails.details}</p> */}
+              <p>{buildingDetails.details}</p>
             </div>
           }
           handleConfirm={handleConfirm}
